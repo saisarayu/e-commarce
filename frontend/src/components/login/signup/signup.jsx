@@ -4,6 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 function Signup() {
   const[name,setName]= useState('')
   const[mail,setEmail]= useState('')
@@ -39,7 +40,7 @@ e.preventdefaultSubmit()
              <button className='mt-5 w-full bg-blue-300 p-2 rounded-lg shadow-lg' type='submit'>submit</button>
              <div className='mt-1 flex '>
                 <p className='text-sm'>already have account</p>
-                <p className='text-sm ml-2 text-blue-500'>login</p>
+                <Link className='text-sm ml-2 text-blue-500' to={'/login'}>login</Link>
 
              </div>
            </form>

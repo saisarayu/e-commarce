@@ -38,7 +38,7 @@ const Login = () => {
                 <h6 className='text-xs'>
                   Dont have an account
                 </h6>
-                <Link className='ml-3 text-xs text-sky-500'>SIGN-UP</Link>
+                <Link className='ml-3 text-xs text-sky-500' to={'/signup'}>SIGN-UP</Link>
                </div>
             </form>
         </div>
