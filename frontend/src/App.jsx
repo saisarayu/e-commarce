@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import {Routes,Route} from 'react-router-dom'
-import { LoginPage } from './routes/routes'
+import { LoginPage , SignupPage } from './routes/routes'
 function App() {
   
 
@@ -12,6 +12,7 @@ function App() {
    <>
    <Routes>
     <Route path='/login' element={<LoginPage/>}/>
+    <Route path='/signup' element={<SignupPage/>}/>
    </Routes>
    </>
   )

@@ -21,7 +21,6 @@ const Login = () => {
                 <input className='w-full focus:outline-none text-start'type='email' required autoComplete='email' name='email' value={email} placeholder='   Email' onChange={(e)=>setEmail(e.target.value)}/>
                 <IoMailSharp className='mr-4 h-8 w-8'/>
                 </div>
-
                 <div className='flex rounded-lg-bg-sky-100 shadow-lg shadow-black-50 w-full mt-5 h-10 justify-between items-center'>
                   <input className='w-full focus:outline-none text-start' type={visible?'text':'password'} required autoComplete='current-password'name='password' value={password} placeholder='   password'onChange={(e)=>setPassword(e.target.value)}/>
                   {
@@ -39,7 +38,7 @@ const Login = () => {
                 <h6 className='text-xs'>
                   Dont have an account
                 </h6>
-                <Link className='ml-3 text-xs text-sky-500'>SIGN-UP</Link>
+                <Link className='ml-3 text-xs text-sky-500' to={'/signup'}>SIGN-UP</Link>
                </div>
             </form>
         </div>
