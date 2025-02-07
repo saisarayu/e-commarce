@@ -100,3 +100,38 @@ Error Messages: Displays real-time feedback when input is invalid.
 React.js – Frontend Framework
 HTML & CSS – Form Structure & Styling
 JavaScript (ES6) – Form Validation Logic
+
+ ## Milestone 6 - Secure User Signup & Password Encryption
+
+ Milestone 6: Backend Signup Endpoint & Secure Password Storage
+
+ Overview
+In Milestone 5, we built the Signup Page in the frontend.
+Now, in Milestone 6, we are implementing a backend endpoint for signup that:
+ Accepts user registration requests
+ Encrypts passwords before storing them
+ Saves user data securely in the MongoDB database
+
+This ensures that user credentials are protected from attacks like data breaches & password leaks.
+
+ Key Achievements
+ 1. Created a Secure Signup API Endpoint (/api/auth/signup)
+Users can now register securely with:
+Name
+Email
+Encrypted Password
+User Role (Default: User)
+API validates user input before saving.
+ 2. Used bcryptjs for Password Encryption
+Before storing passwords, we encrypt them using bcrypt hashing.
+This prevents plain-text passwords from being saved in the database.
+ 3. Stored User Data in MongoDB (Mongoose Schema)
+Created a User Model to store user details in MongoDB Atlas.
+ 4. Tested Signup API Using Postman
+Successfully registered users via Postman API testing.
+ Technologies Used
+Node.js & Express.js – Backend Framework
+MongoDB Atlas & Mongoose – Database Management
+bcryptjs – Password Encryption
+dotenv – Securely manage environment variables
+Postman – API Testing
