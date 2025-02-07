@@ -1,6 +1,19 @@
 const express=require('express')
-const app=express();
-if(process.env.NODE_ENV!=='Production')
-   require('dotenv').config({path:'backend/config/.env'})
+const ErrorHandler = require('../utils/ErrorHandler')
+const user=require('./controller/user')
+const cors = require('cors')
+const app = express()
+
+app.use(cors())
+app.user(express.json())
+app.use(express.urlencoded({extended: true}))
+
+if(process.env.NODE_ENV!=="PRODUCTION"){
+   require('dotenv').config({path:"backgend/config/env"})
+
+
+}
+   app.use('/api',user)
+   app.use(ErrorHandler)
 
 module.exports=app
