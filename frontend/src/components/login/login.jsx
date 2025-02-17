@@ -5,10 +5,15 @@ import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 
+
 const Login = () => {
     const [email,setEmail]=useState('')
     const[password,setPassword]=useState('')
     const[visible,setVisible]=useState(true)
+    const handleSubmit = async(e)=>{
+      e.preventDefault ();
+      await axios.post('https://localhost ')
+    }
   return (
     <div className='h-screen flex justify-center items-center bg-gray-100'>
       <div className='box-border flex flex-col bg-slate-200 h-96 w-96 shadow-xl shadow-black-600 rounded-xl '>
