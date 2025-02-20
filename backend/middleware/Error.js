@@ -1,4 +1,5 @@
-const ErrorHandler = require('../utils/Error');
+const ErrorHandler = require('../utils/ErrorHandler');
+
 
 module.exports = (err, req, res, next) => {
     err.message = err.message || 'Something went wrong';
@@ -29,3 +30,4 @@ module.exports = (err, req, res, next) => {
         message: err.message
     });
 };
+

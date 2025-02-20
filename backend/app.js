@@ -1,6 +1,7 @@
 const express=require('express')
-const ErrorHandler = require('../utils/ErrorHandler')
-const user=require('./controller/user')
+const ErrorHandler = require('../backend/utils/Error')
+const user=require('../backend/controls/user')
+
 const cors = require('cors')
 const app = express()
 
