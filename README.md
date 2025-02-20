@@ -221,7 +221,8 @@ In this milestone, we created a **product input form** that allows users to ente
    ```bash
    git clone YOUR_REPOSITORY_LINK
    cd ecommerce-follow-along
-## milestone 9 :product schema &API end point
+## milestone 10 :product schema & API end point
+
 In this part of Milestone 9, we will define the product schema using Mongoose and create a POST API endpoint to validate and save product details in MongoDB.
 
  Learning Goals
