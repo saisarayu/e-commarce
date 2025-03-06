@@ -420,3 +420,26 @@ Created an API endpoint to delete a product from MongoDB by ID.
 
 Added a delete button to the product card.
 
+# Milestone 15 - Navbar Component
+
+## Overview 
+In this milestone, we created a reusable Navbar component and integrated it into all the pages of our application. The navbar allows smooth navigation between different sections of our app, making it user-friendly and accessible on all screen sizes.
+
+## Learning Goals 
+By completing this milestone, we have learned:
+- How to create a Nav component.
+- How to reuse the same component across multiple pages.
+- How to make the Navbar responsive for different screen sizes.
+
+## Implementation Steps 
+1. **Created a new `Nav` component** with links to:
+   - Home
+   - My Products
+   - Add Product
+   - Cart
+2. **Ensured reusability** by adding the `Nav` component to all pages.
+3. **Implemented responsive design** to make the navbar adaptable to different screen sizes.
+4. **Tested navigation** to ensure smooth transitions between pages.
+
+
+
