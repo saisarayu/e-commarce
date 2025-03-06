@@ -441,5 +441,35 @@ By completing this milestone, we have learned:
 3. **Implemented responsive design** to make the navbar adaptable to different screen sizes.
 4. **Tested navigation** to ensure smooth transitions between pages.
 
+## Milestone 16 - Product Info Page
 
+Overview 
+
+In this milestone, we created a Product Info Page that displays detailed product data, allows users to select a quantity, and includes an Add to Cart button.
+
+Learning Goals 
+
+By completing this milestone, we have learned:
+
+How to create a new page to display detailed product information.
+
+How to allow users to select a quantity before adding a product to the cart.
+
+How to implement an Add to Cart button for user interaction.
+
+Implementation Steps 
+
+Created a new Product Info Page that:
+
+Fetches and displays product details dynamically.
+
+Shows product name, image, price, and description.
+
+Allows users to select a quantity using increment and decrement buttons.
+
+Includes an Add to Cart button.
+
+Ensured smooth user experience by handling errors and responsiveness.
+
+Tested functionality to verify product data retrieval and cart integration.
 

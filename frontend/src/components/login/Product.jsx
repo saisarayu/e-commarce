@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function Product({ name, image, description, price }) {
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transform hover:scale-105 transition-transform duration-300 ease-in-out">
