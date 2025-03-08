@@ -13,7 +13,21 @@ const productSchema=new mongoose.Schema({
     createdAt:{
         type:Date,
         default:Date.now()
-    }
+    },
+    cart:[
+        {
+          productid:{
+            type:String,
+            required:true,
+            unique:true,
+          },
+          quantity:{
+            type:Number,
+            required:true,
+            min:0,
+          },
+        },
+    ],
 
 }
 , {timestamps:true,})

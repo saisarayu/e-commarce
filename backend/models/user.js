@@ -22,6 +22,22 @@ const userSchema = new mongoose.Schema({
     id: { type: String, required: false },
     url: { type: String, required: false },
   },
+   cart:[
+    {
+      productId:{
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"schema",
+          required  :true,
+      },
+      quantity:{
+        type: Number,
+        required:true,
+        min:1,
+        default:1,
+
+      },
+    },
+   ],
   createdAt: { type: Date, default: Date.now },
 });
 

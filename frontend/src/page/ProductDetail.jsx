@@ -57,5 +57,23 @@ const ProductDetail = () => {
     </div>
   );
 }
+const addToCart=async() => {
+  try{
+    if (state <= 0) {
+      console.log("Select at least 1 quantity before adding to cart.");
+      return;
+    }
+    const res = await axios.post(`${server}/product/addTocart`,{
+      userId:email,
+      productId:id,
+      quantity:state
+    })
+    console.log(res)
+  }catch(e){
+  console.log(e)
+  }
+    }
+  
+
   export default ProductDetail;
   

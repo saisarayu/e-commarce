@@ -473,3 +473,46 @@ Ensured smooth user experience by handling errors and responsiveness.
 
 Tested functionality to verify product data retrieval and cart integration.
 
+## Milestone 17: Add Products to Cart
+
+ Overview
+
+In this milestone, we will create a backend endpoint to add products to a user's cart and store them in the database.
+
+ Learning Goals
+
+By the end of this milestone, you will:
+
+Modify the user schema to store cart products.
+
+Write an endpoint to receive product details and store them in the cart.
+
+Steps to Implement
+
+1️ Update the User Schema
+
+Modify the existing user schema to include a cart field, which will store an array of cart items.
+
+2️ Create the Cart Schema (Optional)
+
+If needed, create a separate cart schema to manage cart items more effectively.
+
+3️ Write the Endpoint to Add Products to Cart
+
+Implement an API endpoint that allows users to add products to their cart.
+
+Ensure that the product details, including quantity, are stored properly.
+
+4️ Connect the Route to the Server
+
+Integrate the cart route into the main server file to enable functionality.
+
+Testing the Endpoint
+
+To test the API, use a tool like Postman or an API testing tool to send a request to add products to the cart.
+
+Endpoint: POST /cart/add
+
+Request Body: Contains user ID, product ID, and quantity.
+
+Expected Response: Confirms that the product has been successfully added to the cart.
