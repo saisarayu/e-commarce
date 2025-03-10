@@ -516,3 +516,37 @@ Endpoint: POST /cart/add
 Request Body: Contains user ID, product ID, and quantity.
 
 Expected Response: Confirms that the product has been successfully added to the cart.
+
+## Milestone 18
+Cart Page Backend Endpoint
+
+Overview
+
+This milestone focuses on creating a backend endpoint to fetch all products inside a user's cart. The endpoint will accept a user's email as a query parameter and return the corresponding cart details.
+
+Learning Goals:-
+
+By the end of this milestone, you will:
+
+Create an endpoint to receive requests from the cart page.
+
+Implement backend logic to fetch all products inside a user's cart using their email.
+
+Understand how to structure a cart retrieval API in an e-commerce application.
+
+Steps for Milestone 18 
+
+Create a Backend Endpoint for the Cart Page
+
+Implement a GET route to fetch a user's cart details.
+
+Write an Endpoint to Get Products Inside Cart for a User
+
+Accept email as a query parameter.
+
+Retrieve the user's cart using the provided email.
+
+Populate the cart items with product details.
+
+Return the cart details in JSON format.
+
