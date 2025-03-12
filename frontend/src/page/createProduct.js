@@ -1,149 +1,185 @@
+
+
+
+
+
+
+
+
 import React, { useState } from 'react';
-
+import server from '../server';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 function CreateProduct() {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState(0);
-  const [stock, setStock] = useState(0);
-  const [category, setCategory] = useState('');
   const [images, setImages] = useState([]);
-  const [previewImages, setPreviewImages] = useState([]);
+  const [preImage, setPreImage] = useState([]);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [tags, setTags] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
+  const [email, setEmail] = useState("");
+  const location=useLocation()
 
-  const categoryData = [
-    { title: 'Fashion' },
-    { title: 'Electronics' },
-    { title: 'Stationary' },
-    { title: 'Home Appliance' }
+
+  const categoriesData = [
+    { title: "Electronics" },
+    { title: "Fashion" },
+    { title: "Books" },
+    { title: "Home Appliances" },
   ];
 
-  // Handle Image Upload
   const handleImage = (e) => {
     const files = Array.from(e.target.files);
-    setImages((prevImages) => [...prevImages, ...files]);
-
-    // Generate image previews
-    const previews = files.map((file) => URL.createObjectURL(file));
-    setPreviewImages((prev) => [...prev, ...previews]);
+    setImages((prevImg) => [...prevImg, ...files]);
+    const imagePreviews = files.map((file) => URL.createObjectURL(file));
+    setPreImage((prev) => [...prev, ...imagePreviews]);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('category', category);
+    formData.append('tags', tags);
+    formData.append('price', price);
+    formData.append('stock', stock);
+    formData.append('email', email);
+    images.forEach((image) => {
+      formData.append("images", image);
+    });
+    
+    try {
+      const response = await axios.post(
+        `${server}/product/createProduct`,
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' }, withCredentials: true }
+      );
+      
+      if (response.status === 201) {
+        alert("Product created successfully!");
+        setImages([]);
+        setName("");
+        setDescription("");
+        setCategory("");
+        setTags("");
+        setPrice("");
+        setStock("");
+        setEmail("");
+      }
+    } catch (err) {
+      console.error("Error creating product:", err);
+      alert("Failed to create product. Please check the data and try again.");
+    }
+  };
+
+
+const handleEdit = async(e)=>{
+  const id = location.state.id
+console.log(id)
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('description', description);
+  formData.append('category', category);
+  formData.append('tags', tags);
+  formData.append('price', price);
+  formData.append('stock', stock);
+  formData.append('email', email);
+  images.forEach((image) => {
+    formData.append("images", image);
+  });
+  
+  try {
+    const response = await axios.put(
+      `${server}/product/update-product/${id}`,
+      formData,
+      { headers: { 'Content-Type': 'multipart/form-data' }, withCredentials: true }
+    );
+    
+    if (response.status === 200) {
+      alert("Product updated successfully!");
+      setImages([]);
+      setName("");
+      setDescription("");
+      setCategory("");
+      setTags("");
+      setPrice("");
+      setStock("");
+      setEmail("");
+    }
+  } catch (err) {
+    console.error("Error creating product:", err);
+    alert("Failed to update product. Please check the data and try again.");
+  }
+
+}
+
+
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-semibold mb-4 text-gray-800">Create Product</h1>
-      <form className="space-y-5">
-        {/* Email */}
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
+      <h5 className="text-xl font-semibold mb-4">Create Product</h5>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter your email"
-            required
-          />
+          <label className="block text-gray-700">Email <span className="text-red-500">*</span></label>
+          <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} 
+            placeholder='Enter your email' required 
+            className="w-full p-2 border rounded" />
         </div>
-
-        {/* Product Name */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Product name"
-            required
-          />
+          <label className="block text-gray-700">Name <span className="text-red-500">*</span></label>
+          <input type='text' value={name} onChange={(e) => setName(e.target.value)} 
+            placeholder='Enter product name' required 
+            className="w-full p-2 border rounded" />
         </div>
-
-        {/* Description */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Product description"
-            rows="3"
-            required
-          />
+          <label className="block text-gray-700">Description <span className="text-red-500">*</span></label>
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} 
+            placeholder='Enter product description' rows="4" required 
+            className="w-full p-2 border rounded" />
         </div>
-
-        {/* Price */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Price ($)</label>
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(Number(e.target.value))}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Product price"
-            required
-          />
-        </div>
-
-        {/* Stock */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Stock</label>
-          <input
-            type="number"
-            value={stock}
-            onChange={(e) => setStock(Number(e.target.value))}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Available stock"
-            required
-          />
-        </div>
-
-        {/* Category */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Category</label>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-            required
-          >
-            <option value="">Select Category</option>
-            {categoryData.map((cat, index) => (
-              <option key={index} value={cat.title}>
-                {cat.title}
-              </option>
+          <label className="block text-gray-700">Category <span className="text-red-500">*</span></label>
+          <select value={category} onChange={(e) => setCategory(e.target.value)} required 
+            className="w-full p-2 border rounded">
+            <option>Select an option</option>
+            {categoriesData.map((item, ind) => (
+              <option value={item.title} key={ind}>{item.title}</option>
             ))}
           </select>
         </div>
-
-        {/* Image Upload */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Upload Images</label>
-          <input
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={handleImage}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-          />
+          <label className="block text-gray-700">Tags</label>
+          <input type='text' value={tags} onChange={(e) => setTags(e.target.value)} 
+            className="w-full p-2 border rounded" />
         </div>
-
-        {/* Image Preview */}
-        {previewImages.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-3">
-            {previewImages.map((src, index) => (
-              <img key={index} src={src} alt="Preview" className="w-24 h-24 object-cover rounded-lg border" />
+        <div>
+          <label className="block text-gray-700">Price <span className="text-red-500">*</span></label>
+          <input type='number' value={price} onChange={(e) => setPrice(e.target.value)} required 
+            className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label className="block text-gray-700">Stock <span className="text-red-500">*</span></label>
+          <input type='number' value={stock} onChange={(e) => setStock(e.target.value)} required 
+            className="w-full p-2 border rounded" />
+        </div>
+        <div>
+          <label className="block text-gray-700">Upload Images <span className="text-red-500">*</span></label>
+          <input type='file' id='upload' onChange={handleImage} required multiple 
+            className="w-full p-2 border rounded" />
+          <div className="flex flex-wrap mt-2">
+            {preImage.map((img, index) => (
+              <img src={img} key={index} alt="Preview" 
+                className="w-24 h-24 object-cover m-2 rounded-lg border" />
             ))}
           </div>
-        )}
-
-        {/* Submit Button */}
-        <div>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200"
-          >
-            Create Product
-          </button>
         </div>
+        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+          Create
+        </button>
+        <button className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600" onClick={handleEdit}>Edit button</button>
       </form>
     </div>
   );
