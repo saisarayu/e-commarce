@@ -642,3 +642,14 @@ In this milestone, we implemented the **Order Confirmation Page**, where users c
   - The total order value.
 - Added a **"Place Order"** button at the bottom of the page.
 
+## Steps for Milestone 25: Implementing the Order Creation Endpoint
+In this milestone, you need to create an API endpoint that:
+
+Receives order details (products, user email, and address).
+
+Retrieves the user’s _id from MongoDB using their email.
+
+Stores each product as a separate order with the same address.
+
+Saves the order details in the MongoDB orders collection using the Order schema.
+
