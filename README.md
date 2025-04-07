@@ -653,3 +653,48 @@ Stores each product as a separate order with the same address.
 
 Saves the order details in the MongoDB orders collection using the Order schema.
 
+
+## Milestone 28
+Objective
+Implement a Cancel Order button in the My Orders page that:
+
+Cancels an order by sending its ID to the backend.
+
+Updates the status of that order to "cancelled" in the database.
+
+Hides the cancel button if the order is already cancelled.
+
+ Step-by-Step Implementation
+ 1. Frontend Changes (React)
+ In the MyOrders page:
+For each order, check if the status is NOT "cancelled".
+
+If it’s not, show a "Cancel Order" button.
+
+On button click, send a POST request with the orderId.
+
+jsx
+Copy
+Edit
+
+2.Backend Changes (Express + MongoDB)
+📍 Create a route: POST /api/orders/cancel
+js
+Copy
+Edit
+
+ 3. Database Schema (If not already)
+In your Order model (models/Order.js), ensure there's a status field:
+
+js
+Copy
+Edit
+
+
+ 4. Test Everything
+Place an order, go to "My Orders" page.
+
+Try cancelling — check if status updates.
+
+Verify button disappears after cancellation.
+
