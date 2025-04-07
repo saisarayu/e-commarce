@@ -698,3 +698,38 @@ Try cancelling — check if status updates.
 
 Verify button disappears after cancellation.
 
+# 🛒 Milestone 29 – PayPal API Integration (Part 1)
+
+## 🎯 Learning Goals
+
+By the end of this milestone, you will:
+- Understand how to use the PayPal API.
+- Learn to integrate online payments into a web application.
+- Set up payment options: Cash on Delivery (COD) and Online Payment (PayPal).
+
+---
+ Steps to Complete Milestone 29
+
+###  1. Create a PayPal Developer Account
+- Visit [PayPal Developer Dashboard](https://developer.paypal.com/)
+- Sign up or log in with your PayPal account.
+
+---
+
+###  2. Set Up Sandbox Accounts
+- Navigate to **Sandbox > Accounts** in the dashboard.
+- Use the default **business** and **personal** sandbox accounts or create new ones.
+- Copy and save the **User ID** of the sandbox account (personal).
+- Click into the **business sandbox account** to find your **Client ID**.
+  - You’ll use this Client ID in your frontend to initialize PayPal buttons.
+  - Save it securely for future use.
+
+---
+
+###  3. Update Your Order Confirmation Page
+
+You need to add:
+- **Two radio buttons**:
+  - One for **Cash on Delivery (COD)**
+  - One for **Online Payment (PayPal)**
+- When the user selects **Online Payment**, the PayPal payment buttons should be shown.
