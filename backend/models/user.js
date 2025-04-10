@@ -1,36 +1,58 @@
-const mangoose = require('mangoose')
-const bcrypt = require('bcrypt js')
-const jwt=require('jsonwebtoken')
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
-const userSchema = new mangoose.Schema({
-    name:{type:String,required:true},
-    email:{type:String,required:true,unique:true},
-    phoneNumber:{type:Number},
-    password:{type:String,required:true,minLenght:4},
-    avatar:{
-        id:{type:String},
-        url:{type:String}
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true, minLength: 4 },
+  phoneNumber: { type: Number },
+  address: [
+    {
+      country: { type: String },
+      city: { type: String },
+      address1: { type: String },
+      address2: { type: String },
+      zipcode: { type: Number },
+      addressType: { type: String },
     },
-    address:[
-        {
-            country:{type:String,required:true},
-            city:{type:String,required:true},
-            address1:{type:String},
-            address2:{type:String},
-            pincode1:{type:Number,required:true}
-        }
-    ],
-    role:{type:String,default:user},
-    createAT:{type:DataTransfer, default:DataTransfer.now()}
+  ],
+  role: { type: String, default: "user" },
+  avatar: {
+    id: { type: String, required: false },
+    url: { type: String, required: false },
+  },
+   cart:[
+    {
+      productId:{
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"schema",
+          required  :true,
+      },
+      quantity:{
+        type: Number,
+        required:true,
+        min:1,
+        default:1,
 
-})
+      },
+    },
+   ],
+  createdAt: { type: Date, default: Date.now },
+});
 
-userSchema.pre('save',async function(next) {
-if(!this.modified("password"))
-    return next()
-  await bcrypt.hash(this.password,10)
-  next()  
-})
-userSchema.methods.jsonTokens=function(){
-    return jwt.sign({id:this._id},process.env.JWT_TOKEN,{expireIn1:process.env.Jwt_EXPIRES})
-}
+
+
+// Generate JWT token
+userSchema.methods.getJwtToken = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES, // Corrected from "expiration" to "expiresIn"
+  });
+};
+
+// Compare passwords
+userSchema.methods.comparePassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password); // Fixed incorrect field name
+};
+
+module.exports = mongoose.model("User", userSchema);
