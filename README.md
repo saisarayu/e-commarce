@@ -736,7 +736,7 @@ You need to add:
 
 
 
-## Milestone 30
+## Milestone 31
 React Redux Setup to Store User Email
 This guide helps you set up Redux in a React app to store the user's email in the global state.
 
@@ -760,4 +760,35 @@ Step 5: Wrap App with Redux Provider
 Open your index.js file.
 Import the Provider component from react-redux and wrap your App component with it.
 Pass the store as a prop to the Provider.
+
+## Milestone 30: Integrate PayPal for Online Payments
+This milestone guides you through integrating PayPal payments into your React application using the PayPal sandbox environment.
+
+ Step 1: Create a PayPal Developer Account
+Sign up at https://developer.paypal.com/
+
+Create a Sandbox Business Account (for receiving payments)
+
+Create a Sandbox Personal Account (for making payments)
+
+Copy the Client ID from your app under "My Apps & Credentials"
+
+ Step 2: Install Required NPM Package
+Install @paypal/react-paypal-js using NPM
+This package provides a PayPal component for handling online payments
+
+ Step 3: Setup PayPalScriptProvider
+Import PayPalScriptProvider and use it to wrap the payment component in your app
+
+Pass your sandbox client ID as a prop
+
+ Step 4: Display PayPal Payment Buttons
+Inside your payment component, use the PayPalButtons component to show credit card, debit card, or PayPal options
+
+Configure the amount, currency, and success handlers as needed
+
+ Bonus
+You can handle order creation, success messages, or redirect after payment using the provided callbacks
+
+This setup works in sandbox mode for testing without real money
 
