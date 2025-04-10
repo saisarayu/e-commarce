@@ -733,3 +733,31 @@ You need to add:
   - One for **Cash on Delivery (COD)**
   - One for **Online Payment (PayPal)**
 - When the user selects **Online Payment**, the PayPal payment buttons should be shown.
+
+
+
+## Milestone 30
+React Redux Setup to Store User Email
+This guide helps you set up Redux in a React app to store the user's email in the global state.
+
+Step 1: Install Redux and React-Redux
+Install the necessary packages by running:
+npm install react-redux @reduxjs/toolkit
+
+Step 2: Create Folder and Files
+Inside your src folder, create a folder named store.
+Inside the store folder, create two files: store.js and userActions.js.
+
+Step 3: Setup store.js
+In store.js, configure the Redux store using configureStore from Redux Toolkit.
+Create a reducer named userReducer that manages a single piece of state: the user's email.
+
+Step 4: Setup userActions.js
+In userActions.js, create a function called setEmail.
+This function will allow you to update the user's email in the global state by dispatching an action.
+
+Step 5: Wrap App with Redux Provider
+Open your index.js file.
+Import the Provider component from react-redux and wrap your App component with it.
+Pass the store as a prop to the Provider.
+
