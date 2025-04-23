@@ -792,3 +792,80 @@ You can handle order creation, success messages, or redirect after payment using
 
 This setup works in sandbox mode for testing without real money
 
+
+## Milestone 32
+
+-- Learning Goals
+By the end of this milestone, you’ll be able to:
+
+Use Redux to store and retrieve user email across different pages of your app.
+
+Understand how to use dispatch to update the Redux state.
+
+Understand how to use useSelector to access the Redux state from any component.
+
+-- Steps to Complete Milestone 32
+In the Login Page
+
+Use the dispatch function to store the user’s email into the Redux global state after they log in or submit the form.
+
+In All Other Pages
+
+Use the useSelector hook to read and display the email from the global state wherever you need it (like navigation bars, profile pages, etc.).
+
+This demonstrates the idea of "single source of truth" where your global state is always up-to-date and shared.
+
+-- Submission Checklist
+ Use the same GitHub repo from Milestone 1 (Ecommerce-Follow-Along).
+
+ Finish implementing Milestone 32 (email stored and accessed using Redux).
+
+ Update the README in the root folder:
+
+Add a new section titled "Milestone 32"
+
+Briefly explain what you did and learned in this milestone.
+
+ Commit and push your code.
+
+ Submit your public GitHub repo link.
+
+
+
+## Milestone 33 Overview
+You're going to learn how to:
+
+Generate a JWT (JSON Web Token) using the user's email and ID.
+
+Store the token in a cookie, so it can persist on the user's browser and be used for authentication.
+
+🎯 Learning Goals
+By the end of this milestone, you should understand:
+
+What JWT tokens are and why they’re used.
+
+How to create a token using user details (like email and ID).
+
+How to send that token to the client and store it in a cookie that has an expiration time.
+
+📝 Steps to Follow
+Install jsonwebtoken
+
+This package is used to create and verify tokens securely.
+
+Generate a Token
+
+Use the .sign() method from the package.
+
+Pass in the user's email and ID.
+
+Include a secret key and set a token expiration time using maxAge.
+
+Send the Token in a Cookie
+
+Use your server response object to set a cookie.
+
+This stores the token in the browser so it can be sent automatically with future requests.
+
+🔐 This is a key part of implementing authentication in modern web apps.
+
