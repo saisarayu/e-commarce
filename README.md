@@ -900,4 +900,5 @@ Frontend Deployment: Deployed the frontend application to a static site hosting 
 Integration: Updated the frontend application to communicate with the deployed backend by replacing local API endpoint references with the live backend URL.
 
 Testing: Verified that both the frontend and backend are functioning correctly in the production environment, ensuring seamless user experience.
-
+frontend :-- https://delicate-sundae-1f2979.netlify.app/
+backend :-   (https://e-commarce-4chl.onrender.com)
