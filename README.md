@@ -100,3 +100,805 @@ Error Messages: Displays real-time feedback when input is invalid.
 React.js – Frontend Framework
 HTML & CSS – Form Structure & Styling
 JavaScript (ES6) – Form Validation Logic
+
+ ## Milestone 6 - Secure User Signup & Password Encryption
+
+ Milestone 6: Backend Signup Endpoint & Secure Password Storage
+
+ Overview
+In Milestone 5, we built the Signup Page in the frontend.
+Now, in Milestone 6, we are implementing a backend endpoint for signup that:
+ Accepts user registration requests
+ Encrypts passwords before storing them
+ Saves user data securely in the MongoDB database
+
+This ensures that user credentials are protected from attacks like data breaches & password leaks.
+
+ Key Achievements
+ 1. Created a Secure Signup API Endpoint (/api/auth/signup)
+Users can now register securely with:
+Name
+Email
+Encrypted Password
+User Role (Default: User)
+API validates user input before saving.
+ 2. Used bcryptjs for Password Encryption
+Before storing passwords, we encrypt them using bcrypt hashing.
+This prevents plain-text passwords from being saved in the database.
+ 3. Stored User Data in MongoDB (Mongoose Schema)
+Created a User Model to store user details in MongoDB Atlas.
+ 4. Tested Signup API Using Postman
+Successfully registered users via Postman API testing.
+ Technologies Used
+Node.js & Express.js – Backend Framework
+MongoDB Atlas & Mongoose – Database Management
+bcryptjs – Password Encryption
+dotenv – Securely manage environment variables
+Postman – API Testing
+
+
+## Milestone 7: Backend Endpoint for User Login
+Welcome to Milestone 7! In this milestone, you’ll create a backend endpoint for user login, focusing on validating user credentials and verifying encrypted passwords stored in the database. Let’s break it down step by step.
+
+Learning Goals 
+By the end of this milestone, you will:
+
+Understand how to validate user credentials during login.
+
+Learn how to compare the encrypted password with the user’s input.
+
+Why Encrypt Passwords?
+Protect User Data: Keeps passwords safe even if the database is compromised.
+
+Privacy: Ensures passwords aren’t stored in plain text.
+
+Compliance: Meets security standards like GDPR and PCI-DSS.
+
+Prevents Password Theft: Hashed passwords are difficult to decipher, increasing security.
+
+How Login Authentication Works 
+User Enters Credentials:
+
+The user provides their email/username and password on the login page.
+
+Fetch User Data from Database:
+
+The backend retrieves the user record based on the provided email/username.
+
+If the user is not found, return an error: "User does not exist."
+
+Compare Encrypted Passwords:
+
+Process the user's input password using the same hashing algorithm (e.g., bcrypt).
+
+Compare the resulting hash to the stored hashed password.
+
+If they match, the user is authenticated; if not, send an error.
+
+## Milestone 8: Creating and Displaying Card Components
+Welcome to Milestone 8!  In this milestone, you’ll learn how to create a card component and display multiple cards on the products page. This will help you showcase products effectively and improve the user experience of your e-commerce app.
+
+Learning Goals
+By the end of this milestone, you will:
+
+Learn how to create a card component.
+
+Learn how to display those cards on the products page.
+
+Why Create Card Components?
+Showcase Products Effectively: Presents product details in a clear and visually appealing way.
+
+Reusable Design: Can be used across multiple pages or sections of the app.
+
+Improved User Experience: Makes it easy for users to browse and interact with products.
+
+Organized Layout: Keeps the homepage clean and structured.
+
+How to Display a Single Card for Multiple Products?
+Create a Dynamic Component: Design a single card component that accepts product details as props.
+
+Use Mapping: Use array mapping to iterate over the product list and render a card for each product.
+
+Pass Data Dynamically: Pass unique product information (e.g., name, price, image) to each card.
+
+Maintain Consistency: Ensure the layout remains uniform for all products.
+
+## milestone-9
+
+###  Overview
+In this milestone, we created a **product input form** that allows users to enter product details and upload multiple images. The form ensures **data validation** and previews images before submission.
+
+###  Features
+ User-friendly **product input form**  
+ **Multiple image uploads** with previews 
+  **Real-time validation** for form fields  
+
+###  Screenshots
+![Product Form Screenshot](URL_TO_YOUR_IMAGE)
+
+###  Installation & Usage
+1. Clone the repository:  
+   ```bash
+   git clone YOUR_REPOSITORY_LINK
+   cd ecommerce-follow-along
+## milestone 10 :product schema & API end point
+
+In this part of Milestone 9, we will define the product schema using Mongoose and create a POST API endpoint to validate and save product details in MongoDB.
+
+ Learning Goals
+By the end of this milestone, you will:
+ Learn how to write a Mongoose schema for products
+Implement data validation to ensure only valid data is saved
+ Create a POST API endpoint to receive and store product data in MongoDB
+ Understand the importance of data integrity and validation
+
+## Milestone 11 - Dynamic Home Page
+
+Overview
+
+Welcome to Milestone 11! 
+ In this milestone, we will make our home page dynamic by displaying all the products stored in MongoDB. We will create an endpoint that retrieves product data and renders it dynamically using the product card component we created earlier.
+
+Learning Goals 
+
+By the end of this milestone, you will:
+
+Understand how to write an endpoint to fetch data from MongoDB.
+
+Learn how to receive data on the frontend.
+
+Dynamically display product data using the existing product card component.
+
+Steps to Complete Milestone 11
+
+1. Backend - Create an Endpoint to Fetch Products
+
+Create a new route to retrieve all products from the database and integrate it into the server.
+
+2. Frontend - Fetch and Display Products
+
+Modify the home page component to fetch product data from the backend and display it dynamically using the product card component.
+
+Testing the Implementation 
+
+Start your backend server.
+
+Start your frontend application.
+
+Visit the home page and ensure that all products from MongoDB are displayed dynamically.
+
+Summary 
+
+In this milestone, we:
+
+Created a backend API to fetch all products from MongoDB.
+
+Fetched data on the frontend.
+
+Rendered products dynamically using the product card component.
+
+## Milestone 12 - My Products Page
+
+Overview
+
+Welcome to Milestone 12! 
+ In this milestone, we will create the My Products page, which will display all the products added by the logged-in user based on their email. We will create an endpoint that retrieves product data filtered by the user’s email and displays it dynamically using the product card component.
+
+Learning Goals 
+
+By the end of this milestone, you will:
+
+Understand how to write an endpoint that filters data by email and retrieves products from MongoDB.
+
+Learn how to receive filtered data on the frontend.
+
+Dynamically display product data using the existing product card component.
+
+Steps to Complete Milestone 12 
+
+1. Backend - Create an Endpoint to Fetch User-Specific Products
+
+Write an endpoint that retrieves all products associated with the logged-in user’s email and sends the data to the frontend.
+
+2. Frontend - Fetch and Display User-Specific Products
+
+Create a function to fetch product data based on the user’s email and pass it dynamically to the product card component.
+
+Testing the Implementation 
+
+Start your backend server.
+
+Start your frontend application.
+
+Visit the My Products page and ensure that only products associated with the logged-in user's email are displayed dynamically.
+
+Summary 
+
+In this milestone, we:
+
+Created a backend API to fetch user-specific products from MongoDB.
+
+Filtered product data based on the user’s email.
+
+Displayed filtered products dynamically using the product card component.
+
+Now, your My Products page displays personalized product data dynamically! 🚀
+
+
+
+## Milestone 13 - Edit Uploaded Products
+
+Overview
+
+Welcome to Milestone 13!  In this milestone, we will add functionality to edit uploaded products. We will implement an edit button and create a backend endpoint to update product details inside the MongoDB database.
+
+Learning Goals 
+
+By the end of this milestone, you will:
+
+Understand how to write an endpoint that updates existing data in MongoDB.
+
+Learn how to auto-fill a form with previous product data and provide an option to edit.
+
+Steps for Milestone 13 
+
+1. Backend - Create an Update Endpoint
+
+Write an endpoint that receives updated product data and modifies the existing data inside MongoDB.
+
+2. Frontend - Implement Edit Button & Auto-fill Form
+
+Add an edit button to the product card.
+
+When the edit button is clicked, send the selected product’s data to a form.
+
+Auto-fill the form with previous product details.
+
+Provide an option to edit and save the changes.
+
+Testing the Implementation 
+
+Start your backend server.
+
+Start your frontend application.
+
+Navigate to a product and click the edit button.
+
+Modify the product details and save the changes.
+
+Verify that the product data is updated in MongoDB.
+
+Summary 
+
+In this milestone, we:
+
+Created an API endpoint to update product details in MongoDB.
+
+Added an edit button to the product card.
+
+
+
+## Milestone 14 - Delete Product Functionality
+
+Overview
+
+Welcome to Milestone 14!  In this milestone, we will implement the functionality to delete a product. We will add a delete button to the product card and create a backend endpoint to remove a product from MongoDB using its ID.
+
+Learning Goals 🎯
+
+By the end of this milestone, you will:
+
+Understand how to write an endpoint that deletes a product by its ID from MongoDB.
+
+Steps for Milestone 14 
+
+1. Backend - Create a Delete Endpoint
+
+Write an endpoint that receives a product ID and deletes the corresponding product from MongoDB.
+
+2. Frontend - Implement Delete Button
+
+Add a delete button to the product card.
+
+When the delete button is clicked, send the product ID to the backend endpoint.
+
+Testing the Implementation 
+
+Start your backend server.
+
+Start your frontend application.
+
+Click the delete button on a product.
+
+Verify that the product is removed from MongoDB.
+
+Summary 
+
+In this milestone, we:
+
+Created an API endpoint to delete a product from MongoDB by ID.
+
+Added a delete button to the product card.
+
+# Milestone 15 - Navbar Component
+
+## Overview 
+In this milestone, we created a reusable Navbar component and integrated it into all the pages of our application. The navbar allows smooth navigation between different sections of our app, making it user-friendly and accessible on all screen sizes.
+
+## Learning Goals 
+By completing this milestone, we have learned:
+- How to create a Nav component.
+- How to reuse the same component across multiple pages.
+- How to make the Navbar responsive for different screen sizes.
+
+## Implementation Steps 
+1. **Created a new `Nav` component** with links to:
+   - Home
+   - My Products
+   - Add Product
+   - Cart
+2. **Ensured reusability** by adding the `Nav` component to all pages.
+3. **Implemented responsive design** to make the navbar adaptable to different screen sizes.
+4. **Tested navigation** to ensure smooth transitions between pages.
+
+## Milestone 16 - Product Info Page
+
+Overview 
+
+In this milestone, we created a Product Info Page that displays detailed product data, allows users to select a quantity, and includes an Add to Cart button.
+
+Learning Goals 
+
+By completing this milestone, we have learned:
+
+How to create a new page to display detailed product information.
+
+How to allow users to select a quantity before adding a product to the cart.
+
+How to implement an Add to Cart button for user interaction.
+
+Implementation Steps 
+
+Created a new Product Info Page that:
+
+Fetches and displays product details dynamically.
+
+Shows product name, image, price, and description.
+
+Allows users to select a quantity using increment and decrement buttons.
+
+Includes an Add to Cart button.
+
+Ensured smooth user experience by handling errors and responsiveness.
+
+Tested functionality to verify product data retrieval and cart integration.
+
+## Milestone 17: Add Products to Cart
+
+ Overview
+
+In this milestone, we will create a backend endpoint to add products to a user's cart and store them in the database.
+
+ Learning Goals
+
+By the end of this milestone, you will:
+
+Modify the user schema to store cart products.
+
+Write an endpoint to receive product details and store them in the cart.
+
+Steps to Implement
+
+1️ Update the User Schema
+
+Modify the existing user schema to include a cart field, which will store an array of cart items.
+
+2️ Create the Cart Schema (Optional)
+
+If needed, create a separate cart schema to manage cart items more effectively.
+
+3️ Write the Endpoint to Add Products to Cart
+
+Implement an API endpoint that allows users to add products to their cart.
+
+Ensure that the product details, including quantity, are stored properly.
+
+4️ Connect the Route to the Server
+
+Integrate the cart route into the main server file to enable functionality.
+
+Testing the Endpoint
+
+To test the API, use a tool like Postman or an API testing tool to send a request to add products to the cart.
+
+Endpoint: POST /cart/add
+
+Request Body: Contains user ID, product ID, and quantity.
+
+Expected Response: Confirms that the product has been successfully added to the cart.
+
+## Milestone 18
+Cart Page Backend Endpoint
+
+Overview
+
+This milestone focuses on creating a backend endpoint to fetch all products inside a user's cart. The endpoint will accept a user's email as a query parameter and return the corresponding cart details.
+
+Learning Goals:-
+
+By the end of this milestone, you will:
+
+Create an endpoint to receive requests from the cart page.
+
+Implement backend logic to fetch all products inside a user's cart using their email.
+
+Understand how to structure a cart retrieval API in an e-commerce application.
+
+Steps for Milestone 18 
+
+Create a Backend Endpoint for the Cart Page
+
+Implement a GET route to fetch a user's cart details.
+
+Write an Endpoint to Get Products Inside Cart for a User
+
+Accept email as a query parameter.
+
+Retrieve the user's cart using the provided email.
+
+Populate the cart items with product details.
+
+Return the cart details in JSON format.
+
+
+
+
+Milestone 19 - Ecommerce Follow-Along Project
+
+Overview
+
+In Milestone 19, we implemented a Cart Page that displays products inside the cart. We also added functionality to increase and decrease the quantity of products using + and - buttons. Additionally, we created backend endpoints to handle these quantity updates.
+
+Learning Goals
+
+By completing this milestone, we:
+
+Built a frontend cart page that fetches and displays products.
+
+Added + and - buttons for quantity adjustments.
+
+Developed backend endpoints to modify product quantities in the cart.
+
+Steps Implemented
+
+Frontend (Cart Page UI)
+
+Fetched cart products from the API (built in Milestone 18).
+
+Displayed each product with an image, name, price, and quantity.
+
+Added + and - buttons to modify product quantity.
+
+Integrated API calls to update quantity when buttons are clicked.
+
+Backend (API Endpoints for Quantity Updates)
+
+Created an endpoint to increase product quantity.
+
+Created an endpoint to decrease product quantity (with a minimum limit of 1).
+
+Ensured data validation and error handling.
+
+## Milestone 20: Profile Page & User Data Endpoint
+Learning Goals 
+Create a backend endpoint to send user data.
+Develop a frontend profile page to display user details.
+Display profile photo, name, email, and addresses.
+Show an "Add Address" button and handle cases where no address exists.
+
+## Milestone 21: Address Input Form 
+Overview
+In this milestone, we created a frontend address input form that allows users to add a new address. The form includes fields for country, city, address lines, zip code, and address type.
+
+Features
+Address input form with fields:
+
+Country
+City
+Address Line 1
+Address Line 2 (Optional)
+Zip Code
+Address Type (Home/Work)
+ Stores user input in React state
+Navigates to the form when clicking "Add Address" in the profile page
+ On form submission, logs the data (to be sent to the backend later)
+
+
+# Milestone 23 - Place Order Functionality
+
+## Overview
+In this milestone, we implemented the **Place Order** functionality by adding a button in the cart page, creating a Select Address page, and setting up a backend endpoint to fetch user addresses.
+
+## Features Implemented
+###  Frontend:
+- Added a **"Place Order"** button in the cart page that navigates to the **Select Address** page.
+- Created a **Select Address** page where users can view and select a delivery address.
+
+###  Backend:
+- Implemented a new API endpoint to retrieve the list of saved addresses for a user.
+- Created a **Mongoose Schema** for storing order details.
+
+
+# Milestone 24 - Order Confirmation Page
+
+## Overview
+In this milestone, we implemented the **Order Confirmation Page**, where users can review their order details before finalizing the purchase.
+
+## Features Implemented
+###  Frontend:
+- Created an **Order Confirmation Page** that displays:
+  - All products in the order.
+  - The selected delivery address.
+  - The total order value.
+- Added a **"Place Order"** button at the bottom of the page.
+
+## Steps for Milestone 25: Implementing the Order Creation Endpoint
+In this milestone, you need to create an API endpoint that:
+
+Receives order details (products, user email, and address).
+
+Retrieves the user’s _id from MongoDB using their email.
+
+Stores each product as a separate order with the same address.
+
+Saves the order details in the MongoDB orders collection using the Order schema.
+
+
+## Milestone 28
+Objective
+Implement a Cancel Order button in the My Orders page that:
+
+Cancels an order by sending its ID to the backend.
+
+Updates the status of that order to "cancelled" in the database.
+
+Hides the cancel button if the order is already cancelled.
+
+ Step-by-Step Implementation
+ 1. Frontend Changes (React)
+ In the MyOrders page:
+For each order, check if the status is NOT "cancelled".
+
+If it’s not, show a "Cancel Order" button.
+
+On button click, send a POST request with the orderId.
+
+jsx
+Copy
+Edit
+
+2.Backend Changes (Express + MongoDB)
+📍 Create a route: POST /api/orders/cancel
+js
+Copy
+Edit
+
+ 3. Database Schema (If not already)
+In your Order model (models/Order.js), ensure there's a status field:
+
+js
+Copy
+Edit
+
+
+ 4. Test Everything
+Place an order, go to "My Orders" page.
+
+Try cancelling — check if status updates.
+
+Verify button disappears after cancellation.
+
+# 🛒 Milestone 29 – PayPal API Integration (Part 1)
+
+## 🎯 Learning Goals
+
+By the end of this milestone, you will:
+- Understand how to use the PayPal API.
+- Learn to integrate online payments into a web application.
+- Set up payment options: Cash on Delivery (COD) and Online Payment (PayPal).
+
+---
+ Steps to Complete Milestone 29
+
+###  1. Create a PayPal Developer Account
+- Visit [PayPal Developer Dashboard](https://developer.paypal.com/)
+- Sign up or log in with your PayPal account.
+
+---
+
+###  2. Set Up Sandbox Accounts
+- Navigate to **Sandbox > Accounts** in the dashboard.
+- Use the default **business** and **personal** sandbox accounts or create new ones.
+- Copy and save the **User ID** of the sandbox account (personal).
+- Click into the **business sandbox account** to find your **Client ID**.
+  - You’ll use this Client ID in your frontend to initialize PayPal buttons.
+  - Save it securely for future use.
+
+---
+
+###  3. Update Your Order Confirmation Page
+
+You need to add:
+- **Two radio buttons**:
+  - One for **Cash on Delivery (COD)**
+  - One for **Online Payment (PayPal)**
+- When the user selects **Online Payment**, the PayPal payment buttons should be shown.
+
+
+
+## Milestone 31
+React Redux Setup to Store User Email
+This guide helps you set up Redux in a React app to store the user's email in the global state.
+
+Step 1: Install Redux and React-Redux
+Install the necessary packages by running:
+npm install react-redux @reduxjs/toolkit
+
+Step 2: Create Folder and Files
+Inside your src folder, create a folder named store.
+Inside the store folder, create two files: store.js and userActions.js.
+
+Step 3: Setup store.js
+In store.js, configure the Redux store using configureStore from Redux Toolkit.
+Create a reducer named userReducer that manages a single piece of state: the user's email.
+
+Step 4: Setup userActions.js
+In userActions.js, create a function called setEmail.
+This function will allow you to update the user's email in the global state by dispatching an action.
+
+Step 5: Wrap App with Redux Provider
+Open your index.js file.
+Import the Provider component from react-redux and wrap your App component with it.
+Pass the store as a prop to the Provider.
+
+## Milestone 30: Integrate PayPal for Online Payments
+This milestone guides you through integrating PayPal payments into your React application using the PayPal sandbox environment.
+
+ Step 1: Create a PayPal Developer Account
+Sign up at https://developer.paypal.com/
+
+Create a Sandbox Business Account (for receiving payments)
+
+Create a Sandbox Personal Account (for making payments)
+
+Copy the Client ID from your app under "My Apps & Credentials"
+
+ Step 2: Install Required NPM Package
+Install @paypal/react-paypal-js using NPM
+This package provides a PayPal component for handling online payments
+
+ Step 3: Setup PayPalScriptProvider
+Import PayPalScriptProvider and use it to wrap the payment component in your app
+
+Pass your sandbox client ID as a prop
+
+ Step 4: Display PayPal Payment Buttons
+Inside your payment component, use the PayPalButtons component to show credit card, debit card, or PayPal options
+
+Configure the amount, currency, and success handlers as needed
+
+ Bonus
+You can handle order creation, success messages, or redirect after payment using the provided callbacks
+
+This setup works in sandbox mode for testing without real money
+
+
+## Milestone 32
+
+-- Learning Goals
+By the end of this milestone, you’ll be able to:
+
+Use Redux to store and retrieve user email across different pages of your app.
+
+Understand how to use dispatch to update the Redux state.
+
+Understand how to use useSelector to access the Redux state from any component.
+
+-- Steps to Complete Milestone 32
+In the Login Page
+
+Use the dispatch function to store the user’s email into the Redux global state after they log in or submit the form.
+
+In All Other Pages
+
+Use the useSelector hook to read and display the email from the global state wherever you need it (like navigation bars, profile pages, etc.).
+
+This demonstrates the idea of "single source of truth" where your global state is always up-to-date and shared.
+
+-- Submission Checklist
+ Use the same GitHub repo from Milestone 1 (Ecommerce-Follow-Along).
+
+ Finish implementing Milestone 32 (email stored and accessed using Redux).
+
+ Update the README in the root folder:
+
+Add a new section titled "Milestone 32"
+
+Briefly explain what you did and learned in this milestone.
+
+ Commit and push your code.
+
+ Submit your public GitHub repo link.
+
+
+
+## Milestone 33 Overview
+You're going to learn how to:
+
+Generate a JWT (JSON Web Token) using the user's email and ID.
+
+Store the token in a cookie, so it can persist on the user's browser and be used for authentication.
+
+🎯 Learning Goals
+By the end of this milestone, you should understand:
+
+What JWT tokens are and why they’re used.
+
+How to create a token using user details (like email and ID).
+
+How to send that token to the client and store it in a cookie that has an expiration time.
+
+📝 Steps to Follow
+Install jsonwebtoken
+
+This package is used to create and verify tokens securely.
+
+Generate a Token
+
+Use the .sign() method from the package.
+
+Pass in the user's email and ID.
+
+Include a secret key and set a token expiration time using maxAge.
+
+Send the Token in a Cookie
+
+Use your server response object to set a cookie.
+
+This stores the token in the browser so it can be sent automatically with future requests.
+
+🔐 This is a key part of implementing authentication in modern web apps.
+
+## Milestone 34 - JWT Token Validation
+ What Was Achieved
+In this milestone, we implemented JWT token validation to secure our application routes. The key accomplishments include:
+
+Token Extraction from Cookies: Retrieved the JWT token stored in the browser's HTTP-only cookie during user login.
+
+Middleware for Token Verification: Developed a middleware function that:
+
+Extracts the token from the request cookies.
+
+Verifies the token's validity using the secret key.
+
+Attaches the decoded user information to the request object upon successful verification.
+
+Responds with appropriate error messages if the token is missing or invalid.
+
+Protected Routes: Applied the middleware to routes that require authentication, ensuring that only users with valid tokens can access these routes.
+
+This setup enhances the security of our application by ensuring that sensitive routes are accessible only to authenticated users.
+
+## Milestone 35 - Project Deployment
+ What Was Achieved
+In this milestone, we successfully deployed both the frontend and backend of our application, making it accessible to users over the internet. The key accomplishments include:
+
+Backend Deployment: Deployed the backend server to a cloud hosting platform, ensuring that all API endpoints are live and accessible.
+
+Frontend Deployment: Deployed the frontend application to a static site hosting service, allowing users to interact with the application through a web browser.
+
+Integration: Updated the frontend application to communicate with the deployed backend by replacing local API endpoint references with the live backend URL.
+
+Testing: Verified that both the frontend and backend are functioning correctly in the production environment, ensuring seamless user experience.
+frontend :-- https://delicate-sundae-1f2979.netlify.app/
+backend :-   (https://e-commarce-4chl.onrender.com)
