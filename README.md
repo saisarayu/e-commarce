@@ -869,3 +869,35 @@ This stores the token in the browser so it can be sent automatically with future
 
 🔐 This is a key part of implementing authentication in modern web apps.
 
+## Milestone 34 - JWT Token Validation
+ What Was Achieved
+In this milestone, we implemented JWT token validation to secure our application routes. The key accomplishments include:
+
+Token Extraction from Cookies: Retrieved the JWT token stored in the browser's HTTP-only cookie during user login.
+
+Middleware for Token Verification: Developed a middleware function that:
+
+Extracts the token from the request cookies.
+
+Verifies the token's validity using the secret key.
+
+Attaches the decoded user information to the request object upon successful verification.
+
+Responds with appropriate error messages if the token is missing or invalid.
+
+Protected Routes: Applied the middleware to routes that require authentication, ensuring that only users with valid tokens can access these routes.
+
+This setup enhances the security of our application by ensuring that sensitive routes are accessible only to authenticated users.
+
+## Milestone 35 - Project Deployment
+ What Was Achieved
+In this milestone, we successfully deployed both the frontend and backend of our application, making it accessible to users over the internet. The key accomplishments include:
+
+Backend Deployment: Deployed the backend server to a cloud hosting platform, ensuring that all API endpoints are live and accessible.
+
+Frontend Deployment: Deployed the frontend application to a static site hosting service, allowing users to interact with the application through a web browser.
+
+Integration: Updated the frontend application to communicate with the deployed backend by replacing local API endpoint references with the live backend URL.
+
+Testing: Verified that both the frontend and backend are functioning correctly in the production environment, ensuring seamless user experience.
+
